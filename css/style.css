@@ -105,7 +105,8 @@
 
 /*** Header ***/
 #home {
-    margin-bottom: 6rem;
+    /* margin: 1rem; */
+    border: 1px solid black;
     background: url(../img/profile\ 5.jpg) left no-repeat ;
 }
 
@@ -208,6 +209,11 @@
 
 
 /*** About ***/
+#about{
+    margin-top: -5em;
+    border: 1px solid black;
+    padding: 1em;
+}
 #about .years .display-1 {
     font-size: 10rem;
     line-height: 9rem;
@@ -218,8 +224,25 @@
     margin-right: -30px;
 }
 
+#stackInfo{
+    /* border: 1px solid black; */
+    margin-top: -2.4em;
+}
+
+#agric img
+{
+    
+    height: 12em;
+}
 
 /*** Skills ***/
+#skill{
+    margin-top: 1em;
+    margin-bottom: -2em;
+    border: 1px solid black;
+    padding: 1em;
+}
+
 #skill .progress {
     height: 5px;
     border-radius: 5px;
@@ -243,8 +266,17 @@
     width: 30px;
 }
 
+#mySkills{
+    margin-top: 2em;
+}
+
 
 /*** Service ***/
+#service{
+    margin-top: -2em;
+    border: 1px solid black;
+    padding: 1em;
+}
 .service-item .bg-icon {
     width: 100px;
     height: 100px;
@@ -257,6 +289,10 @@
 
 
 /*** Project Portfolio ***/
+#project{
+    margin-top: -2em;
+    border: 1px solid black;
+}
 #portfolio-flters li {
     display: inline-block;
     font-weight: 500;
@@ -299,6 +335,11 @@
 
 
 /*** Team ***/
+#team{
+    margin-top: 2em;
+    border: 1px solid black;
+    padding: 1em;
+}
 .team-item img {
     transition: .5s;
 }
@@ -427,4 +468,9 @@
 
 .testimonial-carousel .owl-dot.active::after {
     background: var(--primary);
+}
+
+#contact{
+    margin-top: 1em;
+    border: 1px solid black;
 }
