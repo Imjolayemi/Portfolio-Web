@@ -1,4 +1,4 @@
-# Jolayemi Nurudeen Olarewaju - Dynamic Portfolio
+# Jolayemi Nurudeen - Dynamic Portfolio
 
 Welcome to my professional portfolio source code! 🚀 This repository contains a fully bespoke, responsive, and dynamic portfolio website designed to showcase my expertise in software development, AI automation, and technical problem-solving.
 
