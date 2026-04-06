@@ -7,11 +7,19 @@
 }
 
 .back-to-top {
-    position: fixed;
-    display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
+    position: fixed !important;
+    right: 30px !important;
+    bottom: 30px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px !important;
+    height: 48px !important;
+    opacity: 1;
+    visibility: visible;
 }
 
 .my-6 {
@@ -43,14 +51,47 @@
 /*** Button ***/
 .btn {
     font-weight: 500;
-    transition: .5s;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Primary button hover — lift + bright glow */
 .btn.btn-primary,
 .btn.btn-secondary {
     color: #FFFFFF;
 }
 
+/* Primary button hover — only in Hero section */
+#home .btn.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(98, 68, 197, 0.45);
+    filter: brightness(1.12);
+}
+
+#home .btn.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(98, 68, 197, 0.35);
+}
+
+/* Hire Me frosted glass button hover — fill white + scale */
+#home .btn[style*="rgba(255,255,255"] {
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#home .btn[style*="rgba(255,255,255"]:hover {
+    background: rgba(255, 255, 255, 0.38) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+}
+
+#home .btn[style*="rgba(255,255,255"]:active {
+    transform: translateY(-1px);
+}
+
+/*** Icon / Square Buttons (Back to Top, social icons etc.) ***/
 .btn-square {
     width: 38px;
     height: 38px;
@@ -97,7 +138,7 @@
 }
 
 @media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
+    .navbar .navbar-nav .nav-link {
         padding: 10px 0;
     }
 }
@@ -105,9 +146,25 @@
 
 /*** Header ***/
 #home {
-    /* margin: 1rem; */
-    border: 1px solid black;
-    background: url(../img/profile\ 5.jpg) left no-repeat ;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/profile image.JPG") center 43% no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 991.98px) {
+    #home {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/new-bg.jpeg") center top no-repeat;
+        background-size: cover;
+    }
+}
+
+#home h1,
+#home h2,
+#home h3,
+#home h4,
+#home h5,
+#home h6,
+#home .typed-cursor {
+    color: #ffffff !important;
 }
 
 .typed-cursor {
@@ -209,38 +266,36 @@
 
 
 /*** About ***/
-#about{
-    margin-top: -5em;
-    border: 1px solid black;
-    padding: 1em;
-}
 #about .years .display-1 {
-    font-size: 10rem;
-    line-height: 9rem;
+    font-size: 7rem;
 }
 
-#about .years h5 {
-    letter-spacing: 30px;
-    margin-right: -30px;
+#stackInfo {
+    margin-top: 1rem;
 }
 
-#stackInfo{
-    /* border: 1px solid black; */
-    margin-top: -2.4em;
-}
-
-#agric img
-{
-    
-    height: 12em;
+#imageContainer img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 /*** Skills ***/
-#skill{
-    margin-top: 1em;
-    margin-bottom: -2em;
-    border: 1px solid black;
-    padding: 1em;
+.skills-list {
+    width: 100%;
+}
+
+.skill-item {
+    margin-bottom: 12px;
+}
+
+.skill-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--dark);
 }
 
 #skill .progress {
@@ -266,17 +321,24 @@
     width: 30px;
 }
 
-#mySkills{
+#mySkills {
     margin-top: 2em;
 }
 
 
 /*** Service ***/
-#service{
-    margin-top: -2em;
-    border: 1px solid black;
-    padding: 1em;
+
+.github-repo-item {
+    border: 1px solid #f0f0f0;
+    transition: background 0.2s, border-color 0.2s;
 }
+
+.github-repo-item:hover {
+    background: #f5f3ff;
+    border-color: var(--primary);
+}
+
+
 .service-item .bg-icon {
     width: 100px;
     height: 100px;
@@ -289,10 +351,8 @@
 
 
 /*** Project Portfolio ***/
-#project{
-    margin-top: -2em;
-    border: 1px solid black;
-}
+
+
 #portfolio-flters li {
     display: inline-block;
     font-weight: 500;
@@ -310,6 +370,12 @@
 
 .portfolio-img {
     position: relative;
+    height: 300px;
+}
+
+.portfolio-img img {
+    height: 100%;
+    object-fit: cover;
 }
 
 .portfolio-btn {
@@ -334,143 +400,78 @@
 }
 
 
-/*** Team ***/
-#team{
-    margin-top: 2em;
-    border: 1px solid black;
-    padding: 1em;
-}
-.team-item img {
-    transition: .5s;
-}
 
-.team-item:hover img {
-    opacity: .7;
+/*** Responsive Design ***/
+
+/* Large tablets and small desktops */
+@media (max-width: 1199.98px) {
+    #about .years .display-1 { font-size: 5.5rem; }
+    #imageContainer img { height: 155px; }
 }
 
-.team-item .team-text {
-    position: absolute;
-    left: 0;
-    right: 60px;
-    bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transition: .5s;
+/* Tablets */
+@media (max-width: 991.98px) {
+    #about .years .display-1 { font-size: 5rem; }
+    #home .container { text-align: center; }
+    #home .d-flex.justify-content-start { justify-content: center !important; }
+    #imageContainer img { height: 160px; }
+    #skill .col-lg-6:first-child { margin-bottom: 1rem; }
+    #portfolio-flters { text-align: center; padding-left: 0; }
+    #portfolio-flters li { margin: 4px 6px !important; }
 }
 
-.team-item:hover .team-text {
-    right: 30px;
-    opacity: 1;
+/* Mobile phones */
+@media (max-width: 767.98px) {
+    /* Hero */
+    #home { padding-top: 80px; padding-bottom: 40px; text-align: center; }
+    #home h1.display-3 { font-size: 2.2rem; }
+    #home h2 { font-size: 1.1rem; }
+    #home .d-flex.justify-content-start {
+        justify-content: center !important;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* About */
+    #about { padding-top: 2rem; padding-bottom: 1rem; }
+    #about .years .display-1 { font-size: 4rem; }
+    #imageContainer { margin-bottom: 1rem; }
+    #imageContainer img { height: 140px; }
+    #stackInfo, #agricInfo { flex-wrap: wrap; gap: 8px; }
+    #stackInfo h5, #agricInfo h5 {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        font-size: 0.9rem;
+    }
+
+    /* Skills */
+    #skill { padding-top: 2rem; }
+    #mySkills { margin-top: 1rem; }
+    #skill .nav-pills .nav-link { font-size: 0.9rem; padding: 0.5rem; }
+
+    /* Services */
+    #service .service-item { flex-direction: column; }
+    #service h1.display-5 { font-size: 1.8rem; }
+
+    /* Projects */
+    #portfolio-flters { text-align: center; padding-left: 0; }
+    #portfolio-flters li { font-size: 0.82rem; margin: 3px 5px !important; }
+    #project h1.display-5 { font-size: 1.8rem; }
+
+    /* Contact */
+    #contact .col-lg-5, #contact .col-lg-7 { padding: 0 1rem; }
 }
 
-.team-item .team-text div {
-    transition: .5s;
-}
-
-.team-item:hover .team-text div {
-    margin-left: 30px;
-}
-
-
-/*** Testimonial ***/
-.testimonial-left,
-.testimonial-right {
-    position: relative;
-}
-
-.testimonial-left img,
-.testimonial-right img {
-    position: absolute;
-    padding: 5px;
-    border: 1px solid var(--secondary);
-    border-radius: 70px;
-}
-
-.testimonial-left img:nth-child(1),
-.testimonial-right img:nth-child(3) {
-    width: 70px;
-    height: 70px;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.testimonial-left img:nth-child(2),
-.testimonial-right img:nth-child(2) {
-    width: 60px;
-    height: 60px;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-}
-
-.testimonial-left img:nth-child(3),
-.testimonial-right img:nth-child(1) {
-    width: 50px;
-    height: 50px;
-    bottom: 10%;
-    right: 10%;
-}
-
-.testimonial-carousel .owl-item img {
-    width: 120px;
-    height: 120px;
-}
-
-.testimonial-carousel .testimonial-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 50%;
-    bottom: -15px;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 1px solid var(--secondary);
-    border-radius: 60px;
-}
-
-.testimonial-carousel .owl-dots {
-    height: 40px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 30px;
-    height: 30px;
-    background: #FFFFFF;
-    border: 2px solid var(--secondary);
-    border-radius: 30px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot::after {
-    position: absolute;
-    content: "";
-    width: 16px;
-    height: 16px;
-    top: 5px;
-    left: 5px;
-    border-radius: 16px;
-    background: var(--secondary);
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active::after {
-    background: var(--primary);
-}
-
-#contact{
-    margin-top: 1em;
-    border: 1px solid black;
+/* Small phones (< 480px) */
+@media (max-width: 479.98px) {
+    #home h1.display-3 { font-size: 1.8rem; }
+    #about .years .display-1 { font-size: 3.2rem; }
+    #imageContainer img { height: 120px; }
+    .btn.py-3 {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+        font-size: 0.88rem;
+    }
+    #portfolio-flters li { font-size: 0.78rem; margin: 2px 4px !important; }
 }
